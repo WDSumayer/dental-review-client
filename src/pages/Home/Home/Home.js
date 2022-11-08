@@ -1,10 +1,13 @@
 import React from 'react';
+import LimitServices from '../LimitServices/LimitServices';
+
 
 const Home = () => {
+  
     return (
-        <div>
-            <h1>this is home page</h1>
-        </div>
+       <div>
+        <LimitServices></LimitServices>
+       </div>
     );
 };
 

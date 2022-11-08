@@ -1,0 +1,12 @@
+.card-img img {
+    width: 100%;
+    object-fit: cover;
+}
+.service-btn{
+    padding: 11px 17px;
+    background-color: #fff;
+    border: none;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
