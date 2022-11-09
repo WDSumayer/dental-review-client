@@ -16,14 +16,17 @@ const AuthProvider = ({children}) => {
 
 
     const register = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const logIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     
     const updateUser = (name, photoUrl) => {
+        setLoading(true)
         return updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: photoUrl
@@ -31,6 +34,7 @@ const AuthProvider = ({children}) => {
     }
 
     const logOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
 

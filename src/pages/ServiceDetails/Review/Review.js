@@ -2,7 +2,7 @@ import React from 'react';
 import './Review.css'
 
 const Review = ({review}) => {
-    const {img, name, description} = review
+    const {img, name, description, date} = review
     return (
         <div>
             <div className='single-reivew'>
@@ -13,6 +13,7 @@ const Review = ({review}) => {
                     <div className='col-md-10'>
                     <div className='review-content'>
                     <h6>{name}</h6>
+                    <p>{date? date : 'no date'}</p>
                     <p>{description}</p>
                 </div>
                     </div>

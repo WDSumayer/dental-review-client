@@ -22,6 +22,7 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto">
                             <Link className='nav-link' to='/'>Home</Link>
+                            <Link className='nav-link' to='/myreviews'>My Reviews</Link>
                             {
                                 user?.uid ?
                                     <button onClick={handleLogout}>LogOut</button>

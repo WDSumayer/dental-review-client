@@ -2,24 +2,24 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import ReviewBox from './ReviewBox/ReviewBox';
+import moment from 'moment';
 import './ServiceDetails.css'
 
 const ServiceDetails = () => {
     const {user} = useContext(AuthContext)
     const service = useLoaderData()
     const {_id, name, img, description, price } = service;
-    const [hide, setHide] = useState(0)
+    
 
     const handleReview = (e) => {
        e.preventDefault()
-       if(!user?.uid){
-        setHide(1)
-        return
-       }
+       
        const form = e.target;
        const message = form.message.value;
        const review = {
         service_id: _id,
+        service_name: name,
+        date: moment().format('MMMM Do YYYY, h:mm:ss a'),
         email: user.email,
         name: user.displayName,
         img: user.photoURL,
@@ -41,6 +41,15 @@ const ServiceDetails = () => {
         console.log(data)
        })
        .catch(error => console.log(error))
+
+      
+        fetch(`http://localhost:5000/reviewsById?id=${_id}`)
+        .then(res => res.json())
+        .then(data => {
+        
+       
+        })
+    
 
     }
 
@@ -73,17 +82,15 @@ const ServiceDetails = () => {
                   
                     <div className='col-md-7'>
                        <div className='others px-3 py-5'>
-                         <ReviewBox service={service}></ReviewBox>
+                         <ReviewBox _id={_id}></ReviewBox>
                        </div>
                     </div>
                     <div className='col-md-5'>
                    <h5>What is you opinion about this servcie?</h5>
                     <p>Your opinion is very important to us.</p>
                     <form onSubmit={handleReview}>
-                        <textarea name="message" id="" className='w-100 p-3' rows='10' placeholder='Write your review'></textarea>
-                        {
-                            hide === 1 && <p>please login before add review <Link to='/login'>login</Link></p>
-                        }
+                        <textarea name="message" id="" className='w-100 p-3' rows='10' placeholder='Write your review' required></textarea>
+                       
                        <p> <button className='btn btn-primary rounded-1 py-2 px-3 fs-6' type='submit'>Add review</button></p>
                     </form>
                     </div>

@@ -2,19 +2,18 @@ import React, { useEffect, useState } from 'react';
 import Review from '../Review/Review';
 import './ReviewBox.css'
 
-const ReviewBox = ({service}) => {
+const ReviewBox = ({_id}) => {
 
     const [reviews, setReviwes] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch(`http://localhost:5000/reviewsById?id=${_id}`)
         .then(res => res.json())
         .then(data => {
-            const addReviews = data.filter(review => review.service_id === service._id )
-            setReviwes(addReviews)
-            console.log(reviews)
+        setReviwes(data)
+       
         })
-    }, [reviews, service._id])
+    }, [_id])
     return (
         <div>
             { reviews.length > 0 ?

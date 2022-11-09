@@ -2,16 +2,20 @@ import React from 'react';
 import './ServiceCard.css'
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const ServiceCard = ({service}) => {
     const {name,_id, img, price, description} = service;
 
     
     return (
-        <div className='col-12 col-md-4'>
+       <PhotoProvider>
+         <div className='col-12 col-md-4'>
             <div className='border p-4'>
                 <div className='card-img'>
+                    <PhotoView src={img}>
                     <img src={img} alt=''></img>
+                    </PhotoView>
                 </div>
                 <div className='card-content'>
                     <h3 className='pt-3'>{name}</h3>
@@ -26,6 +30,7 @@ const ServiceCard = ({service}) => {
                 </div>
             </div>
         </div>
+       </PhotoProvider>
     );
 };
 
