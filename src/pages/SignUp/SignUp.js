@@ -2,8 +2,9 @@ import { getAuth, updateProfile } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import app from '../../firebase/firebase.config';
+import './SignUp.css'
  
 
 const SignUp = () => {
@@ -47,36 +48,46 @@ const SignUp = () => {
   
     return (
         <div className='container'>
-           <Form onSubmit={handleRegister}>
+         <div className='row'>
+          <div className='col-12 col-md-3'></div>
+          <div className='col-12 col-md-6'>
+         <div className='registration-form'>
+          <h2>Please SignUp</h2>
+         <Form onSubmit={handleRegister}>
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Name</Form.Label>
-        <Form.Control name="name" type="text" placeholder="name" />
+        <Form.Control className='py-2 border-0' name="name" type="text" placeholder="name" />
        
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicUrl">
         <Form.Label>Photo Url</Form.Label>
-        <Form.Control name="photoUrl" type="url" placeholder="url" />
+        <Form.Control className='py-2 border-0' name="photoUrl" type="url" placeholder="url" />
        
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" name="email" placeholder="Enter email" />
+        <Form.Control className='py-2 border-0' type="email" name="email" placeholder="Enter email" />
        
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" name="password" placeholder="Password" />
+        <Form.Control className='py-2 border-0' type="password" name="password" placeholder="Password" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicConfirm">
         <Form.Label>Confirm Password</Form.Label>
-        <Form.Control name="confirm" type="password" placeholder="confirm" />
+        <Form.Control className='py-2 border-0' name="confirm" type="password" placeholder="confirm" />
       </Form.Group>
       <p className='text-danger'>{error}</p>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" className='w-100 py-2' type="submit">
         Sign Up
       </Button>
+      <p>Already have an account? <Link to='/login'>Log in</Link></p>
     </Form>
+         </div>
+          </div>
+          <div className='col-12 col-md-3'></div>
+         </div>
         </div>
     );
 };

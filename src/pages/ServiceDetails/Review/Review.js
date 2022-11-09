@@ -2,7 +2,7 @@ import React from 'react';
 import './Review.css'
 
 const Review = ({review}) => {
-    const {img, name, description, date} = review
+    const {photoURL:img, name, description, date} = review
     return (
         <div>
             <div className='single-reivew'>

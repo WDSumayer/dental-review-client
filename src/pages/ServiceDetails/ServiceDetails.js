@@ -4,6 +4,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import ReviewBox from './ReviewBox/ReviewBox';
 import moment from 'moment';
 import './ServiceDetails.css'
+import { toast } from 'react-toastify';
 
 const ServiceDetails = () => {
     const {user} = useContext(AuthContext)
@@ -22,7 +23,7 @@ const ServiceDetails = () => {
         date: moment().format('MMMM Do YYYY, h:mm:ss a'),
         email: user.email,
         name: user.displayName,
-        img: user.photoURL,
+        photoURL: user.photoURL,
         description: message
        }
        console.log(review)
@@ -37,6 +38,8 @@ const ServiceDetails = () => {
        .then(data => {
         if(data.acknowledged){
             form.reset()
+            toast.success('Congratulation, you are right!!!', {autoClose: 1000})
+            
         }
         console.log(data)
        })

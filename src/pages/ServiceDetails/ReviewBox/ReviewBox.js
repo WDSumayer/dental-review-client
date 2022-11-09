@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import Review from '../Review/Review';
 import './ReviewBox.css'
 
@@ -11,6 +12,9 @@ const ReviewBox = ({_id}) => {
         .then(res => res.json())
         .then(data => {
         setReviwes(data)
+        if(data.acknowledged === true){
+           
+        }
        
         })
     }, [_id])
