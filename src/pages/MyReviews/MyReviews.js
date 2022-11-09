@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import MyReview from './MyReview';
 
@@ -25,6 +26,9 @@ const MyReviews = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                if(data.deletedCount > 0){
+                    toast.success('Your review deleted successfully.', {autoClose: 1000})
+                }
                 const remaining = myreviews.filter(myreview => myreview._id !== id)
                 setMyReviews(remaining)
             })
@@ -37,7 +41,7 @@ const MyReviews = () => {
                 myreviews.length > 0 ?
                 myreviews.map(myreview => <MyReview key={myreview._id} myreview={myreview} handleDeleteReview={handleDeleteReview}></MyReview>)
                 :
-                <h1>You didn't add any review of any service.</h1>
+                <h1 className='text-center pt-5'>You didn't add any review of any service.</h1>
             }
             </div>
           
