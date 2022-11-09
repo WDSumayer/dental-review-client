@@ -1,9 +1,12 @@
 import React from 'react';
 import './ServiceCard.css'
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const ServiceCard = ({service}) => {
-    const {name, img, price, description} = service;
+    const {name,_id, img, price, description} = service;
+
+    
     return (
         <div className='col-12 col-md-4'>
             <div className='border p-4'>
@@ -15,7 +18,10 @@ const ServiceCard = ({service}) => {
                     <p>{description.length > 100 ? description.slice(0, 100) + '...' : description}</p>
                    <div className='d-flex justify-content-between align-items-center'>
                    <h6 className='m-0'>Price: $ {price}</h6>
-                    <button className='service-btn'>Details<span className='ps-2'><FaLongArrowAltRight></FaLongArrowAltRight></span></button>
+                   <Link to={`/serviceDetails/${_id}`}>
+                   <button className='service-btn'>Details<span className='ps-2'><FaLongArrowAltRight></FaLongArrowAltRight></span></button>
+                   </Link>
+                    
                    </div>
                 </div>
             </div>
