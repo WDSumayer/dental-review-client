@@ -1,3 +1,14 @@
+# site-name: Dent-care
+# link:
+# features
+1. bootstrap has been used as a framework
+2. firebase based auth system has been used in this site
+3. mongodb has been used as a non sql database in this site
+4. jwt token has been used as data security 
+5. this is a single page application
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
