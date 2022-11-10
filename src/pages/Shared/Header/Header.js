@@ -23,6 +23,7 @@ const Header = () => {
                         <Nav className="ms-auto">
                             <Link className='nav-link' to='/'>Home</Link>
                             <Link className='nav-link' to='/myreviews'>My Reviews</Link>
+                            <Link className='nav-link' to='/addServices'>Add Service</Link>
                             {
                                 user?.uid ?
                                     <button onClick={handleLogout}>LogOut</button>

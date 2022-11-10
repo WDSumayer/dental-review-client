@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import Review from '../Review/Review';
 import './ReviewBox.css'
 
-const ReviewBox = ({_id}) => {
+const ReviewBox = ({_id, add}) => {
 
     const [reviews, setReviwes] = useState([])
 
@@ -15,9 +15,9 @@ const ReviewBox = ({_id}) => {
         if(data.acknowledged === true){
            
         }
-       
+       console.log(reviews)
         })
-    }, [_id])
+    }, [_id,add])
     return (
         <div>
             { reviews.length > 0 ?

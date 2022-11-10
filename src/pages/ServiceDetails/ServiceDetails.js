@@ -10,6 +10,7 @@ const ServiceDetails = () => {
     const {user} = useContext(AuthContext)
     const service = useLoaderData()
     const {_id, name, img, description, price } = service;
+    const [add, setAdd] = useState([])
     
 
     const handleReview = (e) => {
@@ -49,8 +50,8 @@ const ServiceDetails = () => {
         fetch(`http://localhost:5000/reviewsById?id=${_id}`)
         .then(res => res.json())
         .then(data => {
-        
-       
+         console.log('added review', data)
+            setAdd(data)
         })
     
 
@@ -85,7 +86,7 @@ const ServiceDetails = () => {
                   
                     <div className='col-md-7'>
                        <div className='others px-3 py-5'>
-                         <ReviewBox _id={_id}></ReviewBox>
+                         <ReviewBox _id={_id} add={add}></ReviewBox>
                        </div>
                     </div>
                     <div className='col-md-5'>

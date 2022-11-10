@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './MyReview.css'
 
 const MyReview = ({myreview, handleDeleteReview}) => {
@@ -19,7 +20,8 @@ const MyReview = ({myreview, handleDeleteReview}) => {
                     
                 </div>
                 <div className='d-flex justify-content-end'>
-                    <button onClick={() => handleDeleteReview(_id)} className='btn btn-primary py-2 px-4 border-0 rounded-1 fs-6'>Remove</button>
+                    <Link to={`/updateReview/${_id}`}><button className='btn bg-white py-2 px-4 border rounded-1 fs-6'>Edit</button></Link>
+                    <button onClick={() => handleDeleteReview(_id)} className='btn btn-primary py-2 px-4 border-0 rounded-1 fs-6 ms-4'>Remove</button>
                 </div>
             </div>
         </div>
