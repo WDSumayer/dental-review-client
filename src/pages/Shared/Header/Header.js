@@ -15,7 +15,7 @@ const Header = () => {
     }
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" className='py-4' bg="white" variant="white">
+            <Navbar collapseOnSelect expand="lg" className='py-4' bg="light" variant="light">
                 <Container>
                     <Link className='navbar-brand fs-3' to='/'>Care-dent</Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
