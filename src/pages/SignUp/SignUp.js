@@ -4,13 +4,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import './SignUp.css'
  
 
 const SignUp = () => {
     const {register, updateUser} = useContext(AuthContext)
     const [error, setError] = useState('')
-
+    useTitle('Signup')
     const handleRegister = (e) => {
         e.preventDefault()
        
