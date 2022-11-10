@@ -16,7 +16,7 @@ const UpdateReview = () => {
     const handleReviewUpdate = (e) => {
         e.preventDefault()
         console.log(review)
-        fetch(`http://localhost:5000/reviews/${prevReview._id}`, {
+        fetch(`https://dental-review-server.vercel.app/reviews/${prevReview._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -40,11 +40,11 @@ const UpdateReview = () => {
     }
 //service_name
     return (
-        <div className='container'>
+        <div style={{height:'100vh'}} className='container'>
             <div className='row'>
                 <div className='col-12 col-md-3'></div>
                 <div className='col-12 col-md-6'>
-                    <div>
+                    <div className='pt-5'>
                     <Form onSubmit={handleReviewUpdate}>
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Your Service</Form.Label>

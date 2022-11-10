@@ -3,11 +3,12 @@ import './Advice.css'
 
 const Advice = () => {
     return (
-        <div className='container'>
+        <div className='container py-5'>
             <div className='row d-flex align-items-center'>
                 <div className='col-12 col-md-6'>
                     <div className='advice'>
-                        <h3>To keep teeth healthy</h3>
+                        <h2 className='mb-4'>Advices</h2>
+                        <h4>To keep teeth healthy</h4>
                         <p>You should follow these steps</p>
                         <ul>
                             <li>Don't go to bed without brushing your teeth</li>

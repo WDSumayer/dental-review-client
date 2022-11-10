@@ -11,6 +11,7 @@ const ServiceDetails = () => {
     const service = useLoaderData()
     const {_id, name, img, description, price } = service;
     const [add, setAdd] = useState([])
+    const[error, setError] = useState(0)
     
 
     const handleReview = (e) => {
@@ -18,24 +19,35 @@ const ServiceDetails = () => {
        
        const form = e.target;
        const message = form.message.value;
+
+
+
+
        const review = {
         service_id: _id,
         service_name: name,
         date: moment().format('MMMM Do YYYY, h:mm:ss a'),
-        email: user.email,
-        name: user.displayName,
-        photoURL: user.photoURL,
+        email: user?.email,
+        name: user?.displayName,
+        photoURL: user?.photoURL,
         description: message
        }
-       console.log(review)
-       fetch('http://localhost:5000/reviews', {
+       if(!user?.email){
+        setError(1)
+        return
+       }
+       fetch('https://dental-review-server.vercel.app/reviews', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
         body: JSON.stringify(review)
        })
-       .then(res => res.json())
+       .then(res => {
+        
+
+        return res.json()
+    })
        .then(data => {
         if(data.acknowledged){
             form.reset()
@@ -47,7 +59,7 @@ const ServiceDetails = () => {
        .catch(error => console.log(error))
 
       
-        fetch(`http://localhost:5000/reviewsById?id=${_id}`)
+        fetch(`https://dental-review-server.vercel.app/reviewsById?id=${_id}`)
         .then(res => res.json())
         .then(data => {
          console.log('added review', data)
@@ -95,6 +107,12 @@ const ServiceDetails = () => {
                     <form onSubmit={handleReview}>
                         <textarea name="message" id="" className='w-100 p-3' rows='10' placeholder='Write your review' required></textarea>
                        
+                        
+                       {
+                        error ? <p className='fs-5'>Please login before adding review <Link to='/login'>LogIn</Link></p>
+                        :
+                        undefined
+                       }
                        <p> <button className='btn btn-primary rounded-1 py-2 px-3 fs-6' type='submit'>Add review</button></p>
                     </form>
                     </div>

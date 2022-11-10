@@ -8,7 +8,7 @@ const ReviewBox = ({_id, add}) => {
     const [reviews, setReviwes] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviewsById?id=${_id}`)
+        fetch(`https://dental-review-server.vercel.app/reviewsById?id=${_id}`)
         .then(res => res.json())
         .then(data => {
         setReviwes(data)

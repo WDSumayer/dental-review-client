@@ -15,15 +15,15 @@ export const routes = createBrowserRouter([
         path: '/', element: <Main></Main>, children: [
             {
                 path: '/', element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/limitServices')
+                loader: () => fetch('https://dental-review-server.vercel.app/limitServices')
             },
             {
                 path: '/services', element: <Services></Services>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://dental-review-server.vercel.app/services')
             },
             {
                 path: '/serviceDetails/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+                loader: ({params}) => fetch(`https://dental-review-server.vercel.app/services/${params.id}`),
                 element: <ServiceDetails></ServiceDetails>
             },
             {
@@ -31,7 +31,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/updateReview/:id', element: <UpdateReview></UpdateReview>,
-                loader:({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+                loader:({params}) => fetch(`https://dental-review-server.vercel.app/reviews/${params.id}`)
             },
             {
                 path: '/addServices', element: <PrivateRoutes><AddServices></AddServices></PrivateRoutes>

@@ -3,6 +3,7 @@ import useTitle from '../../../hooks/useTitle';
 import Banner from '../Banner/Banner';
 import LimitServices from '../LimitServices/LimitServices';
 import Advice from './Advice/Advice';
+import Specialities from './Specialities/Specialities'
 
 
 const Home = () => {
@@ -10,8 +11,9 @@ const Home = () => {
     return (
        <div>
         <Banner></Banner>
-        <LimitServices></LimitServices>
         <Advice></Advice>
+        <LimitServices></LimitServices>
+        <Specialities></Specialities>
        </div>
     );
 };

@@ -25,7 +25,7 @@ const AddServices = () => {
             price: price
 
         }
-        fetch('http://localhost:5000/services', {
+        fetch('https://dental-review-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -46,11 +46,11 @@ const AddServices = () => {
 
 
     return (
-        <div className='container'>
+        <div style={{height:'100vh'}} className='container'>
             <div className='row'>
                 <div className='col-12 col-md-3'></div>
                 <div className='col-12 col-md-6'>
-                    <div>
+                    <div className='pt-5'>
                     <Form onSubmit={handleAddService}>
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Name</Form.Label>

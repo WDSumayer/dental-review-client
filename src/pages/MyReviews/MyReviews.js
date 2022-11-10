@@ -11,7 +11,7 @@ const MyReviews = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviewsByEmail?email=${user?.email}`, {
+        fetch(`https://dental-review-server.vercel.app/reviewsByEmail?email=${user?.email}`, {
             headers: {
                 authorization : `Bearer ${localStorage.getItem('dent-token')}`
               }
@@ -30,7 +30,7 @@ const MyReviews = () => {
     const handleDeleteReview = (id) => {
         const proceed = window.confirm('Do you want to delete this?')
         if(proceed){
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://dental-review-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
@@ -45,7 +45,8 @@ const MyReviews = () => {
         }
     }
     return (
-        <div className='container py-5'>
+       <div style={{height:'100vh'}}>
+         <div className='container py-5'>
             <div className='row g-5'>
             {
                 myreviews.length > 0 ?
@@ -56,6 +57,7 @@ const MyReviews = () => {
             </div>
           
         </div>
+       </div>
     );
 };
 
