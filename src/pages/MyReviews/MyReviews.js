@@ -8,7 +8,7 @@ const MyReviews = () => {
     const{user, logOut} = useContext(AuthContext)
     const [myreviews, setMyReviews] = useState([])
     useTitle('My Reviews')
-
+    
 
     useEffect(() => {
         fetch(`https://dental-review-server.vercel.app/reviewsByEmail?email=${user?.email}`, {
