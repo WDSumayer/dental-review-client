@@ -15,13 +15,14 @@ const Header = () => {
     }
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="lg" className='py-4' bg="white" variant="white">
                 <Container>
-                    <Link className='navbar-brand' to='/'>Care-dent</Link>
+                    <Link className='navbar-brand fs-3' to='/'>Care-dent</Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto">
                             <Link className='nav-link' to='/'>Home</Link>
+                         
                            
                             {
                                 user?.uid ?
@@ -36,7 +37,7 @@ const Header = () => {
                                         <Link className='nav-link' to='/signup'>SignUp</Link>
                                     </>
                             }
-
+                               <Link className='nav-link' to='/blog'>Blog</Link>
 
 
 
