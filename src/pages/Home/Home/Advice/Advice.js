@@ -24,7 +24,7 @@ const Advice = () => {
                     </div>
                 </div>
                 <div className='col-12 col-md-6'>
-                    <img src='https://i.ibb.co/YtVmVDX/freestock-49068148.jpg' alt=''></img>
+                    <img className='img-fluid' src='https://i.ibb.co/YtVmVDX/freestock-49068148.jpg' alt=''></img>
                 </div>
             </div>
             
