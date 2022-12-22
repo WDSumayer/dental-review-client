@@ -15,12 +15,14 @@ export const routes = createBrowserRouter([
     {
         path: '/', element: <Main></Main>, children: [
             {
-                path: '/', element: <Home></Home>,
-                loader: () => fetch('https://dental-review-server.vercel.app/limitServices')
+                path: '/', 
+                element: <Home></Home>,
+               
             },
             {
-                path: '/services', element: <Services></Services>,
-                loader: () => fetch('https://dental-review-server.vercel.app/services')
+                path: '/services', 
+                // loader: () => fetch('https://dental-review-server.vercel.app/services'),
+                element: <Services></Services>
             },
             {
                 path: '/serviceDetails/:id',

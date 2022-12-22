@@ -12,7 +12,7 @@ const ServiceDetails = () => {
     const {_id, name, img, description, price } = service;
     const [add, setAdd] = useState([])
     const[error, setError] = useState(0)
-    
+    console.log('img' , img)
 
     const handleReview = (e) => {
        e.preventDefault()
